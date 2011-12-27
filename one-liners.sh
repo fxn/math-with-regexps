@@ -16,3 +16,7 @@ perl -le '$_ = 1 x pop; print $+[1] and s/$1/1/g while /^(11+?)\1*$/' 60
 2
 3
 5
+
+# n mod m.
+perl -e "(1 x shift) =~ /(1{@{[shift]}})*/; print length $'" 17 8
+1
