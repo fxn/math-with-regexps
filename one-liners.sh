@@ -1,0 +1,18 @@
+# Arguments are assumed to be positive integers.
+
+# Prints "coprime" if the arguments are relatively prime.
+perl -e 'print "coprime\n" if "@{[1 x pop]} @{[1 x pop]}" !~ /^(11+)\1* \1+$/' 3 4
+coprime
+
+# Number of divisors. This solution shows off of and  embedded loop in the
+# regexp by forcing backtracking. In this case using the Perl (??{ ... })
+# construct, but the techinique is generic.
+perl -e '(1 x pop) =~ /^(1+)\1*$(??{++$t})/; print "$t\n"' 8
+4
+
+# Prime factorization.
+perl -le '$_ = 1 x pop; print $+[1] and s/$1/1/g while /^(11+?)\1*$/' 60
+2
+2
+3
+5
