@@ -1,0 +1,5 @@
+A repo with assorted one-liners to do simple math stuff using regexps.
+
+These are not golf exercises (they all can be shortened indeed), the
+motivation is to explore the technique Agigail uses in his famous
+primality test.
