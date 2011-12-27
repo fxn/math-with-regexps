@@ -4,7 +4,7 @@
 perl -e 'print "coprime\n" if "@{[1 x pop]} @{[1 x pop]}" !~ /^(11+)\1* \1+$/' 3 4
 coprime
 
-# Number of divisors. This solution shows off of and  embedded loop in the
+# Number of divisors. This solution shows off how to embed a loop in the
 # regexp by forcing backtracking. In this case using the Perl (??{ ... })
 # construct, but the techinique is generic.
 perl -e '(1 x pop) =~ /^(1+)\1*$(??{++$t})/; print "$t\n"' 8
