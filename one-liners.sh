@@ -25,3 +25,7 @@ perl -e "(1 x shift) =~ /(1{@{[shift]}})*/; print length $'" 17 8
 perl -le '$_ = "@{[1 x shift]} @{[1 x shift]}"; s/$1/1/g while /^(11+?)\1* \1+$/; print for map length, split' 60 24
 5
 2
+
+# Euler's phi function: number of positive integers less than or equal to n relatively prime to n.
+perl -e '$n = pop; print~~grep {"@{[1 x $_]} @{[1 x $n]}" !~ /^(11+)\1* \1+$/} 1..$n' 60
+16
