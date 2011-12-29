@@ -1,13 +1,13 @@
 # Arguments are assumed to be positive integers.
 
 # Prints "coprime" if the arguments are relatively prime.
-perl -e 'print "coprime\n" if "@{[1 x pop]} @{[1 x pop]}" !~ /^(11+)\1* \1+$/' 3 4
+perl -le 'print "coprime" if "@{[1 x pop]} @{[1 x pop]}" !~ /^(11+)\1* \1+$/' 3 4
 coprime
 
 # Number of divisors. This solution shows off how to embed a loop in the
 # regexp by forcing backtracking. In this case using the Perl (??{ ... })
 # construct, but the techinique is generic.
-perl -e '(1 x pop) =~ /^(1+)\1*$(??{++$t})/; print "$t\n"' 8
+perl -le '(1 x pop) =~ /^(1+)\1*$(??{++$t})/; print $t' 8
 4
 
 # Prime factorization.
@@ -18,7 +18,7 @@ perl -le '$_ = 1 x pop; print $+[1] and s/$1/1/g while /^(11+?)\1*$/' 60
 5
 
 # n mod m.
-perl -e "(1 x shift) =~ /(1{@{[shift]}})*/; print length $'" 17 8
+perl -le "(1 x shift) =~ /(1{@{[shift]}})*/; print length $'" 17 8
 1
 
 # Fraction reduction to lowest terms.
@@ -27,13 +27,13 @@ perl -le '$_ = "@{[1 x shift]} @{[1 x shift]}"; s/$1/1/g while /^(11+?)\1* \1+$/
 2
 
 # Euler's phi function: number of positive integers less than or equal to n relatively prime to n.
-perl -e '$n = pop; print~~grep {"@{[1 x $_]} @{[1 x $n]}" !~ /^(11+)\1* \1+$/} 1..$n' 60
+perl -le '$n = pop; print~~grep {"@{[1 x $_]} @{[1 x $n]}" !~ /^(11+)\1* \1+$/} 1..$n' 60
 16
 
 # Greatest common divisor (gcd).
-perl -e '"@{[1 x pop]} @{[1 x pop]}" =~ /(1+)\1* \1+$/ && print $+[1]' 27 36
+perl -le '"@{[1 x pop]} @{[1 x pop]}" =~ /(1+)\1* \1+$/ && print $+[1]' 27 36
 9
 
 # Square-free test: an integer is square-free if it is divisible by no perfect square (except 1).
-perl -e '$_ = 1 x pop; s/$1/1/g && /^($&)+$/ && exit while /(11+?)\1*$/; print "square-free\n"' 15
+perl -le '$_ = 1 x pop; s/$1/1/g && /^($&)+$/ && exit while /(11+?)\1*$/; print "square-free"' 15
 square-free
