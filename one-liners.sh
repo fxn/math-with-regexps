@@ -33,3 +33,7 @@ perl -e '$n = pop; print~~grep {"@{[1 x $_]} @{[1 x $n]}" !~ /^(11+)\1* \1+$/} 1
 # Greatest common divisor (gcd).
 perl -e '"@{[1 x pop]} @{[1 x pop]}" =~ /(1+)\1* \1+$/ && print $+[1]' 27 36
 9
+
+# Square-free test: an integer is square-free if it is divisible by no perfect square (except 1).
+$ perl -e '$_ = 1 x pop; s/$1/1/g && /^($&)+$/ && exit while /(11+?)\1*$/; print "square-free\n"' 15
+square-free
