@@ -37,3 +37,7 @@ perl -le '"@{[1 x pop]} @{[1 x pop]}" =~ /(1+)\1* \1+$/ && print $+[1]' 27 36
 # Square-free test: an integer is square-free if it is divisible by no perfect square (except 1).
 perl -le '$_ = 1 x pop; s/$1/1/g && /^($&)+$/ && exit while /(11+?)\1*$/; print "square-free"' 15
 square-free
+
+# Perfect square test: an integer is a perfect square if it is equal to n^2 for some n.
+perl -le '$_ = 1 x (pop||1); 1 while /^(11+?)\1*$/ && /^(($1){$+[1]})+$/ && s/$1/1/g; print "perfect square" if /^1$/' 64
+perfect square
