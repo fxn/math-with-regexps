@@ -1,5 +1,3 @@
-# Arguments are assumed to be positive integers.
-
 # Prints "coprime" if the arguments are relatively prime.
 perl -le 'print "coprime" if "@{[1 x pop]} @{[1 x pop]}" !~ /^(11+)\1* \1+$/' 3 4
 coprime
