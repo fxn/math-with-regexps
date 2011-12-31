@@ -39,3 +39,7 @@ square-free
 # Perfect square test: an integer is a perfect square if it is equal to n^2 for some n.
 perl -le '$_ = 1 x (pop||1); 1 while /^(11+?)\1*$/ && /^(($1){$+[1]})+$/ && s/$1/1/g; print "perfect square" if /^1$/' 64
 perfect square
+
+# Alternative perfect square test.
+perl -le '$_ = 1 x pop; $n = 1; $n += 2 while s/1{$n}//; $_ || print "perfect square"' 64
+perfect square
