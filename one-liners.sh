@@ -47,3 +47,7 @@ perfect square
 # Integer square root.
 perl -le '$_ = 1 x pop; $n = 1; $n += 2 while s/1{$n}/0/; print tr/0//d' 2012
 44
+
+# Triangular number test.
+perl -le '$_ = 1 x pop; 1 while s/($1 1)//x; $_ || print "triangular"' 21
+triangular
