@@ -43,3 +43,7 @@ perfect square
 # Alternative perfect square test.
 perl -le '$_ = 1 x pop; $n = 1; $n += 2 while s/1{$n}//; $_ || print "perfect square"' 64
 perfect square
+
+# Integer square root.
+perl -le '$_ = 1 x pop; $n = 1; $n += 2 while s/1{$n}/0/; print tr/0//d' 2012
+44
