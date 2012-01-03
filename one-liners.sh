@@ -53,7 +53,8 @@ perl -le '$_ = 1 x pop; 1 while s/($1 1)//x; $_ || print "triangular"' 21
 triangular
 
 # Continued fraction.
-perl -le '($_, $q) = map {1 x $_} @ARGV; $q = $& while print s/$q//g and s/.+/$q/' 415 93
+perl -le '($_, $q) = map {1 x $_} @ARGV; $q = $& while print s/$q//g||0 and s/.+/$q/' 93 415
+0
 4
 2
 6
