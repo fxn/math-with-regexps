@@ -59,3 +59,10 @@ perl -le '($_, $q) = map {1 x $_} @ARGV; $q = $& while print s/$q//g||0 and s/1+
 2
 6
 7
+
+# Sieve of Eratosthenes.
+perl -le '$_ = join " ", map {1 x $_} 2..pop; print $+[1] and s/\b($1)+\b *//g while s/(1+) ?//' 10
+2
+3
+5
+7
