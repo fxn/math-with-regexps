@@ -66,3 +66,8 @@ perl -le '$_ = join " ", map {1 x $_} 2..pop; print $+[1] and s/\b($1)+\b *//g w
 3
 5
 7
+
+# Perfect number test: Perfect numbers are positive integers that are equal to
+# the sum of their proper positive divisors.
+perl -le '$n = 1 x pop; $n =~ /^(1+)\1+$(??{$s.=$^N})/; print "perfect number" if $s eq $n' 496
+perfect number
