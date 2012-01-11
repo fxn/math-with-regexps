@@ -71,3 +71,7 @@ perl -le '$_ = join " ", map {1 x $_} 2..pop; print $+[1] and s/\b($1)+\b *//g w
 # the sum of their proper positive divisors.
 perl -le '$n = 1 x pop; $n =~ /^(1+)\1+$(??{$s.=$^N})/; print "perfect number" if $s eq $n' 496
 perfect number
+
+# Fibonacci numbers.
+perl -le '$f = "1 1"; $f =~ s/(1+) (1+)/$1$2 $1/ for 3..pop; $f =~ /1+/; print $+[0]' 16
+987
